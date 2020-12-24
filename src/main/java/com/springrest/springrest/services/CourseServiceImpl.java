@@ -32,7 +32,7 @@ public class CourseServiceImpl implements CourseService{
     }
 
     @Override
-    public Course getReviewbyId(Long courseId) {
+    public Course getReviewbyId(long courseId) {
 //        Course c =null;
 //        for(Course course:list)
 //        {
@@ -41,7 +41,8 @@ public class CourseServiceImpl implements CourseService{
 //                break;
 //            }
 //        }
-        return courseDao.getOne(courseId);
+        Course entity = courseDao.getOne(courseId);
+        return entity;
 //        return c;
     }
 
@@ -51,5 +52,21 @@ public class CourseServiceImpl implements CourseService{
         courseDao.save(course);
         return course;
     }
+
+    @Override
+    public Course updateReview(Course course){
+        courseDao.save(course);
+        return course;
+    }
+
+
+    @Override
+    public void deleteReview(long parseLong){
+       Course entity = courseDao.getOne(parseLong);
+       courseDao.delete(entity);
+//       courseDao.findById()
+    }
+
+
 
 }
