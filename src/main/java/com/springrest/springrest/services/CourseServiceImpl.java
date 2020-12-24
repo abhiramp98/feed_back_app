@@ -32,7 +32,7 @@ public class CourseServiceImpl implements CourseService{
     }
 
     @Override
-    public Course getReviewbyid(Long courseId) {
+    public Course getReviewbyId(Long courseId) {
 //        Course c =null;
 //        for(Course course:list)
 //        {

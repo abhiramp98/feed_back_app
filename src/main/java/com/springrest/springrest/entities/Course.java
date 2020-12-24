@@ -1,23 +1,34 @@
 package com.springrest.springrest.entities;
 
-
+import javax.persistence.*;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
+@Table(name = "course")
 public class Course {
 
     @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(nullable = false,length = 20)
     private long id;
-    private String firstName;
-    private String lastName;
+
+    @Column(nullable = false,length = 20)
+    private String firstname;
+
+    @Column(nullable = false,length = 20)
+    private String lastname;
+
+    @Column(nullable = false,length = 10)
     private String service;
+
+    @Column(nullable = false,length = 45)
     private String review;
 
-    public Course(long id, String firstName, String lastName, String service, String review) {
+    public Course(long id, String firstname, String lastname, String service, String review) {
         this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
+        this.firstname = firstname;
+        this.lastname = lastname;
         this.service = service;
         this.review = review;
     }
@@ -34,20 +45,20 @@ public class Course {
         this.id = id;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getFirstname() {
+        return firstname;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getLastname() {
+        return lastname;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
     }
 
     public String getService() {
@@ -68,6 +79,6 @@ public class Course {
 
     @Override
     public String toString() {
-        return "course [ id=" + id +",firstName" + firstName +", lastName" + lastName + ",title=" + service + ", description" + review+ "]";
+        return "course [ id=" + id +",firstName" + firstname +", lastName" + lastname + ",title=" + service + ", description" + review+ "]";
     }
 }
